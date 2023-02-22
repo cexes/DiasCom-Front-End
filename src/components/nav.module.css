@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+h1{
+    color: black;
+}
+#container {
+    margin-left: 20%;
+    margin-top:64px;
+    height: 700px;
+    width: 1200px;
+    border-radius: 12px; 
+    background-color: rgb(240, 240, 240);
+    color: white;
+    position: absolute;
+}
+
+.searchBox{
+    margin-top: 15px;
+    width: 1170px;
+    margin-left: 10px;
+    position: absolute;
+    border-bottom: 2px solid black;
+}
+.search {
+    margin-bottom: 12px;
+    margin-left: 1000px;
+    border-radius: 12px;
+    border: 2px solid  rgb(0, 0, 0);
+   
+}
+.home {
+    height: 423px;
+    width: 1170px;
+    background-color: #c7b2d6;
+    margin-left: 10px;
+    margin-top: 80px;
+    position: absolute;
+}
+
+
+
+
+
+.nav {
+    border-top: 2px solid black;
+    width: 1170px;
+    height: 120px;
+    margin-top: 520px;
+    margin-left: 10px;
+    position: absolute;
+
+}
+
+ul{
+    margin-left: 450px;
+    position: absolute;
+    list-style: none;
+    margin-top: 12px;
+    
+    
+
+}
+ ul li {
+  
+  padding-left: 18px;
+  padding-right: 12px;
+  border-radius: 5px;;
+  color: black;
+  display: inline;
+  background-color:	#D8BFD8;
+  position: relative;
+}
+
+ul li:hover{
+    background-color:#4B0082
+}
+ul ul{
+    display: none;
+    margin: 0px;
+}
+
+ul li:hover>ul{
+    display:block;
+    position: absolute;
+}
+
+
+
+@media (min-width:200px)and (max-width:500px) {
+
+    .container{
+        margin-left: 25px;
+        margin-top: 22px;
+        height: 40px;
+        width: 300px;
+        border-radius: 12px;    
+     
+    }
+  
+}   
+
