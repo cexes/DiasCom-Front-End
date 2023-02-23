@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './nav.module.css'
 import SlideShow from './slideshow'
+import {Link} from 'react-router-dom'
 
 
 function Navegation(){
-
+   
 
   return(
     
@@ -21,26 +22,27 @@ function Navegation(){
                 <SlideShow></SlideShow>
             </div>
               
-               <div className={styles.nav}>
-                <ul>
-                <li>Home</li>
-                <li>Produtos
-                    <ul>
-                        <li>Camisetas</li>
-                        <li>Calças</li>
-                        <li>Bermudas</li>
-                        <li>Tênis</li>
-                    </ul>
-                </li>
-                   <li>Redes Socias</li>
-                </ul>
-                <div className={styles.slideContainer}>
+            <div className={styles.nav}>
               
+                <ul>
+                <Link to="/" style={{ textDecoration: 'none'}}><li>Home</li></Link>
+                <Link to="/produtos" style={{ textDecoration: 'none'}}><li>Produtos</li></Link>
+                <Link to="https://www.instagram.com/" style={{ textDecoration: 'none'}}><li>Redes Sociais</li></Link>
+
+                </ul>
+                
+
+                <div className={styles.slideContainer}>
+                
               </div>
               
                 </div>
+               
+
             
           </div>
+
+
     
   )  
 

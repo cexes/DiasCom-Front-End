@@ -1,0 +1,10 @@
+.container {
+    margin-left: 20%;
+    margin-top:64px;
+    height: 700px;
+    width: 1200px;
+    border-radius: 12px; 
+    background-color: rgb(240, 240, 240);
+    color: white;
+    position: absolute;
+}
