@@ -9,6 +9,14 @@
     position: absolute;
 }
 
-p{
-  color:black;
+
+
+.boxPrd{
+  border: 1px solid red;
+  height:100px;
+  float: left;
+  color: black;
 }
+
+
+
