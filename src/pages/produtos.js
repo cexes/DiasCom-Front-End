@@ -24,10 +24,10 @@ function PrPage() {
                 prds.map((produtos) =>(
                     <div className= {styles.boxPrd} key={produtos.id}> 
                        <div> 
-                         <img src='r'/>
+                         <img src={produtos.pathImage}/>
                           <p>{produtos.type}</p>
-                          <p>{produtos.price}</p>
-                          <p>{produtos.description}</p>
+                          <p>preço:{produtos.price}R$</p>
+                          
                         
 
                         </div>
