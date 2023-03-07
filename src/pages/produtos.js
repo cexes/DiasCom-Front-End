@@ -26,10 +26,9 @@ function PrPage() {
                        <div> 
                          <img src={produtos.pathImage}/>
                           <p>{produtos.type}</p>
+                          <p>{produtos.description}</p>
                           <p>preço:{produtos.price}R$</p>
-                          
                         
-
                         </div>
                     </div>
                 ))

@@ -1,36 +1,52 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import axios from "axios";
 
-
 function RegisterNewPrd() {
+    const formData = new FormData();
       const [newPrd, setNewPrd] = useState({
          type: '',
          price: undefined,
          description: '',
-         amount: undefined,
-         image: undefined,
+         amount: undefined
+    });
+   
+    const [image, setImage] = useState(null);
 
-      })
-    
-     const [image,setImage] = useState('');
-    
-  
     function SetForm(event, key){
-        setNewPrd({...newPrd,
-            [key]:event.target.value})
-    }
+         setNewPrd({...newPrd,
+            [key]:event.target.value})};
 
-    async function Handle(event){
-         event.preventDefault()
-         //const send = await axios.post('/registernewprd',newPrd);
-         console.log(image)
-         
-         
-     };
+    const handlerImage = (event)=>{
+        if(event.target.files[0]){
+            imgRef.current.src = URL.createObjectURL(event.target.files[0])
+         };setImage(event.target.files[0])
+    };
+
+    const imgRef = useRef();
+
+    const SendFormForAPi = async(event)=>{
+        event.preventDefault();
+        const data = new FormData();
+        data.append("type",newPrd.type);
+        data.append("price",newPrd.price);
+        data.append("description",newPrd.type);
+        data.append("amount",newPrd.amount);
+        data.append("image",image)
+        
+        try {
+            await axios.post('/registernewprd',data,{
+                headers: {
+                    "Content-Type": `multipart/form-data`
+                }
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return (
         <div>
-            <form onSubmit={Handle} enctype="multipart/form-data">
+            <form onSubmit={SendFormForAPi}>
                 <input type="text"
                  name="type"
                  placeholder="tipo"
@@ -44,7 +60,7 @@ function RegisterNewPrd() {
                  placeholder="preço"
                  value={newPrd.price}
                  onChange={(event)=>SetForm(event,'price')}
-               ></input><br/>
+                  ></input><br/>
              
                 <input type="text" 
                 name="description"
@@ -61,18 +77,20 @@ function RegisterNewPrd() {
                 value={newPrd.amount}
                 onChange={(event)=>SetForm(event,'amount')}
                 ></input>
-
+                <br></br>
                 <input 
-                type='file'
-                name ="SendImage"
-                
-                onChange={event => setImage(event.target.files[0])
-}
+                type="file" 
+                name="image"
+                placeholder="image"
+                onChange={handlerImage}
                 ></input>
+                <img  ref={imgRef}/>
+                <br></br>
+                <br></br>
+                <button type="submit" >Enviar</button>
 
-
-                <button type="submit">Enviar</button>
             </form>
+
          </div>
     );
 };
